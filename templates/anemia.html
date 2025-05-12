@@ -1,0 +1,47 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+<h2>Anemia Prediction</h2>
+<form method="POST" action="/predict_anemia">
+    <label>Age (years)</label>
+    <input type="number" step="any" name="Age" required>
+
+    <label>Sex (0=Male, 1=Female)</label>
+    <input type="number" name="Sex" required>
+
+    <label>RBC (million cells/µL)</label>
+    <input type="number" step="any" name="RBC" required>
+
+    <label>PCV (%)</label>
+    <input type="number" step="any" name="PCV" required>
+
+    <label>MCV (fL)</label>
+    <input type="number" step="any" name="MCV" required>
+
+    <label>MCH (pg)</label>
+    <input type="number" step="any" name="MCH" required>
+
+    <label>MCHC (g/dL)</label>
+    <input type="number" step="any" name="MCHC" required>
+
+    <label>RDW (%)</label>
+    <input type="number" step="any" name="RDW" required>
+
+    <label>TLC (x10³/µL)</label>
+    <input type="number" step="any" name="TLC" required>
+
+    <label>Platelet Count (x10³/µL)</label>
+    <input type="number" step="any" name="PLT" required>
+
+    <label>Hemoglobin (g/dL)</label>
+    <input type="number" step="any" name="HGB" required>
+
+    <input type="submit" value="Predict and Proceed">
+</form>
+
+{% if prediction_text %}
+<h3>{{ prediction_text }}</h3>
+{% endif %}
+{% endblock %}
+
+{% set background_image = 'static/anemia_bg.jpeg' %}

@@ -1,0 +1,62 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Anemia Prediction</title>
+    <style>
+        body { font-family: Arial; padding: 20px; background-color: #f4f4f4; }
+        form { background: white; padding: 20px; border-radius: 8px; width: 420px; margin: auto; }
+        input { width: 90%; padding: 10px; margin: 8px 0; }
+        input[type="submit"] { background-color: #4CAF50; color: white; border: none; cursor: pointer; }
+        h3 { text-align: center; color: green; }
+    </style>
+</head>
+<body>
+
+    <h2 style="text-align:center;">Anemia Prediction Form</h2>
+    <form method="POST" action="/predict">
+        <label>Age (in years)</label>
+        <input type="number" step="any" name="Age" required>
+
+        <label>Sex (0 = Male, 1 = Female)</label>
+        <input type="number" name="Sex" required>
+
+        <label>RBC - Red Blood Cell Count (million cells/µL)</label>
+        <input type="number" step="any" name="RBC" required>
+
+        <label>PCV - Packed Cell Volume (%)</label>
+        <input type="number" step="any" name="PCV" required>
+
+        <label>MCV - Mean Corpuscular Volume (fL)</label>
+        <input type="number" step="any" name="MCV" required>
+
+        <label>MCH - Mean Corpuscular Hemoglobin (pg)</label>
+        <input type="number" step="any" name="MCH" required>
+
+        <label>MCHC - Mean Corpuscular Hemoglobin Concentration (g/dL)</label>
+        <input type="number" step="any" name="MCHC" required>
+
+        <label>RDW - Red Cell Distribution Width (%)</label>
+        <input type="number" step="any" name="RDW" required>
+
+        <label>TLC - Total Leukocyte Count (x10<sup>3</sup>/µL)</label>
+        <input type="number" step="any" name="TLC" required>
+
+        <label>PLT/mm<sup>3</sup> - Platelet Count (x10<sup>3</sup>/µL)</label>
+        <input type="number" step="any" name="PLT" required>
+
+        <label>HGB - Hemoglobin (g/dL)</label>
+        <input type="number" step="any" name="HGB" required>
+
+        <input type="submit" value="Predict">
+    </form>
+
+    {% if prediction_text %}
+        <h3>{{ prediction_text }}</h3>
+    {% endif %}
+
+</body>
+</html>

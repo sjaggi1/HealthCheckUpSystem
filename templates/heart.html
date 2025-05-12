@@ -1,0 +1,111 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+<h2>Heart Disease Prediction</h2>
+
+<form method="POST" action="/predict_heart">
+    <label>Age</label>
+    <input type="number" name="Age" required>
+
+    <label>Gender</label>
+    <select name="Gender" required>
+        <option>Male</option>
+        <option>Female</option>
+    </select>
+
+    <label>Blood Pressure</label>
+    <input type="number" name="Blood_Pressure" required>
+
+    <label>Cholesterol Level</label>
+    <input type="number" name="Cholesterol" required>
+
+    <label>Exercise Habits</label>
+    <select name="Exercise_Habits" required>
+        <option>Low</option>
+        <option>High</option>
+    </select>
+
+    <label>Smoking</label>
+    <select name="Smoking" required>
+        <option>Yes</option>
+        <option>No</option>
+    </select>
+
+    <label>Family Heart Disease</label>
+    <select name="Family_Heart_Disease" required>
+        <option>Yes</option>
+        <option>No</option>
+    </select>
+
+    <label>Diabetes</label>
+    <select name="Diabetes" required>
+        <option>Yes</option>
+        <option>No</option>
+    </select>
+
+    <label>BMI</label>
+    <input type="number" step="any" name="BMI" required>
+
+    <label>High Blood Pressure</label>
+    <select name="High_BP" required>
+        <option>Yes</option>
+        <option>No</option>
+    </select>
+
+    <label>Low HDL Cholesterol</label>
+    <select name="Low_HDL" required>
+        <option>Yes</option>
+        <option>No</option>
+    </select>
+
+    <label>High LDL Cholesterol</label>
+    <select name="High_LDL" required>
+        <option>Yes</option>
+        <option>No</option>
+    </select>
+
+    <label>Alcohol Consumption</label>
+    <select name="Alcohol" required>
+        <option>Low</option>
+        <option>Medium</option>
+        <option>High</option>
+    </select>
+
+    <label>Stress Level</label>
+    <select name="Stress" required>
+        <option>Low</option>
+        <option>Medium</option>
+        <option>High</option>
+    </select>
+
+    <label>Sleep Hours</label>
+    <input type="number" step="any" name="Sleep_Hours" required>
+
+    <label>Sugar Consumption</label>
+    <select name="Sugar" required>
+        <option>Low</option>
+        <option>Medium</option>
+        <option>High</option>
+    </select>
+
+    <label>Triglyceride Level</label>
+    <input type="number" name="Triglyceride" required>
+
+    <label>Fasting Blood Sugar</label>
+    <input type="number" name="Fasting_Blood_Sugar" required>
+
+    <label>CRP Level</label>
+    <input type="number" step="any" name="CRP" required>
+
+    <label>Homocysteine Level</label>
+    <input type="number" step="any" name="Homocysteine" required>
+
+    <input type="submit" value="Predict Heart Disease">
+</form>
+
+{% if prediction_text %}
+<h3>{{ prediction_text }}</h3>
+{% endif %}
+{% endblock %}
+
+{% set background_image = 'static/heart_bg.jpg' %}
